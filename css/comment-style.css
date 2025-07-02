@@ -5,43 +5,43 @@ body {
       font-family: sans-serif;
     }
 
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-    .dropdown-button {
-      background-color: #555;
-      color: white;
-      padding: 0.5em 1em;
-      border: none;
-      cursor: pointer;
-    }
+.dropdown-button {
+  background-color: #555;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  cursor: pointer;
+}
 
 
-    .dropdown-content a {
-      color: black;
-      padding: 0.5em 1em;
-      text-decoration: none;
-      display: block;
-    }
+.dropdown-content a {
+  color: black;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  display: block;
+}
 
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 
-    .dropdown.show .dropdown-content {
-      display: block;
-    }
+.dropdown.show .dropdown-content {
+  display: block;
+}
 
 .box {
   max-width: 600px;
@@ -74,8 +74,9 @@ body {
 }
 
 #share {
-background-color:rgb(254, 169, 188);
-width: 350px;
+	background-color:rgb(254, 169, 188);
+	width: 350px;
+	height: 65px;
 }
 
 #favor {
