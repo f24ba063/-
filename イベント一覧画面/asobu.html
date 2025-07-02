@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>遊びの思い出</title>
+  <style>
+    /* 共通スタイルは割愛。必要であれば memory.html を参照してください */
+    body { font-family: "Hiragino Kaku Gothic ProN", sans-serif; background: #fff; margin: 0; padding: 0; text-align: center; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 16px; }
+    header h1 { font-size: 24px; margin: 0; }
+    .menu-icon { font-size: 28px; cursor: pointer; }
+    .container { max-width: 375px; margin: 0 auto; padding: 10px; }
+    .post-card { margin-bottom: 24px; }
+    .post { background: #000; color: #fff; border-radius: 10px; aspect-ratio: 16 / 9; display: flex; justify-content: center; align-items: center; }
+    .comment { background: #fff; color: #000; padding: 8px 12px; border-radius: 20px; font-size: 16px; }
+    .actions { display: flex; justify-content: center; margin-top: 8px; }
+    .icon-btn { background: none; border: none; font-size: 20px; cursor: pointer; }
+    .icon-btn.disabled { opacity: 0.5; pointer-events: none; }
+    .like-count { font-size: 14px; color: #555; margin-left: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>遊びの思い出</h1>
+    <div class="menu-icon">☰</div>
+  </header>
+
+  <div class="container">
+    <div class="post-card">
+        <a href="post.html" class="post-link">
+            <div class="post">
+                <div class="comment">🎢 ジェットコースター最高！</div>
+            </div>
+        </a>
+        <div class="actions">
+          <button class="icon-btn like-btn">👍 <span class="like-count">0</span></button>
+        </div>
+    </div>
+
+    <div class="post-card">
+        <a href="post.html" class="post-link">
+            <div class="post">
+                <div class="comment">🏖 砂浜でのんびり！</div>
+            </div>
+        </a>
+        <div class="actions">
+          <button class="icon-btn like-btn">👍 <span class="like-count">0</span></button>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".like-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.classList.contains("disabled")) return;
+        const countSpan = btn.querySelector(".like-count");
+        countSpan.textContent = parseInt(countSpan.textContent, 10) + 1;
+        btn.classList.add("disabled");
+      });
+    });
+  </script>
+</body>
+</html>

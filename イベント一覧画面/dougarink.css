@@ -1,0 +1,7 @@
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+}
