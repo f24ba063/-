@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>いいね・コメント入力画面</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/comment-style.css">
+	<script src="script/script.js"></script>
+	<script src="script/comment-script.js"></script>
+		
+</head>
+<body>
+	<header>
+	  <div class="logo">🌐 MySite</div>
+	  <div class="dropdown" id="langDropdown">
+	    <button class="dropdown-button" onclick="toggleDropdown()">言語を選択</button>
+	    <div class="dropdown-content">
+	      <a href="?lang=ja">日本語</a>
+	      <a href="?lang=en">English</a>
+	      <a href="?lang=fr">Français</a>
+	      <a href="?lang=zh">中文</a>
+	    </div>
+	  </div>
+	</header>
+	<img id="dummy-picture" src="img/000.jpg" alt="ダミー動画">
+	<div id="inform">
+		<p id="where"><a href="where.html">ここはどこ？</a></p>
+		<a href="externalSite.html"><button id="share" value="共有">共有</button></a>
+		<img id="favor" src="img/いいねのアイコン.svg">
+		<p id="favor-count"><h5>いいね！</h5><br>0</p>
+
+	</div>
+	<p class="descriptions">ダミー詳細。ダミー詳細。
+		ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
+		ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
+		ダミー詳細。</p>
+	<p class="descriptions">ダミーコメント。ダミーコメント。ダミーコメント。
+		ダミーコメント。ダミーコメント。ダミーコメント。
+		ダミーコメント。ダミーコメント。ダミーコメント。
+	</p>
+</body>
+</html>
