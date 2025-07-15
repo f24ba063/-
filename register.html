@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>新規登録</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .register-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 18px;
+      border: 1.5px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #5a2dff;
+      outline: none;
+      background-color: #faf8ff;
+    }
+    button {
+      width: 100%;
+      padding: 14px 0;
+      background-color: #5a2dff;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #3f1ed1;
+    }
+    .link-container {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .link-container a {
+      color: #5a2dff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .link-container a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h1>新規登録</h1>
+    <form action="/register" method="POST">
+      <label for="name">ユーザー名</label>
+      <input type="text" id="name" name="name" required placeholder="ユーザー名を入力してください" />
+
+      <label for="email">メールアドレス</label>
+      <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+
+      <label for="password">パスワード</label>
+      <input type="password" id="password" name="password" required placeholder="********" />
+
+      <label for="password-confirm">パスワード確認</label>
+      <input type="password" id="password-confirm" name="password_confirm" required placeholder="もう一度入力してください" />
+
+      <button type="submit">登録する</button>
+    </form>
+    <div class="link-container">
+      すでにアカウントをお持ちの方は <a href="login.html">ログイン</a>
+    </div>
+  </div>
+</body>
+</html>
