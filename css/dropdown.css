@@ -1,0 +1,43 @@
+    /* 言語選択ドロップダウン用スタイル */
+    #langDropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 120px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 100;
+      border-radius: 6px;
+      padding: 8px 0;
+      right: 0;
+      top: 100%;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 8px 16px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown.show .dropdown-content {
+      display: block;
+    }
+
+    /* ボタンの基本スタイル */
+    .dropdown-button {
+      background-color: #190909;
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
