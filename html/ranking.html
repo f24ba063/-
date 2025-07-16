@@ -26,9 +26,35 @@
             .medal{
                 font-size: 2rem;
             }
+            /* 左上に固定された戻るボタン */
+            .fixed-back-button {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            background-color: #999;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+            user-select: none;
+            }
+            .fixed-back-button:hover,
+            .fixed-back-button:focus {
+            background-color: #666;
+            outline: none;
+            }
         </style>
     </head>    
     <body>
+          <!-- 左上固定 戻るボタン -->
+        <button class="fixed-back-button" type="button" onclick="history.back()" aria-label="前のページに戻る">
+            ← 戻る
+        </button>
         <div class="ranking-wrap">
             <div class="headline">
                 <div class="medal">🥇</div>
