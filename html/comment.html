@@ -1,42 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>いいね・コメント入力画面</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="../css/comment-style.css">
-	<script src="../script/script.js"></script>
-	<script src="../script/comment-script.js"></script>
-		
+  <meta charset="UTF-8">
+  <title>いいね・コメント入力画面</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/comment-style.css">
+  <script src="../script/script.js"></script>
+  <script src="../script/comment-script.js"></script>
+  <style>
+    /* 言語選択ドロップダウン用スタイル */
+    #langDropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 120px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 100;
+      border-radius: 6px;
+      padding: 8px 0;
+      right: 0;
+      top: 100%;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 8px 16px;
+      color: black;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown.show .dropdown-content {
+      display: block;
+    }
+
+    /* ボタンの基本スタイル */
+    .dropdown-button {
+      background-color: #190909;
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    /* 左上に固定された戻るボタン */
+    .fixed-back-button {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background-color: #999;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    .fixed-back-button:hover,
+    .fixed-back-button:focus {
+      background-color: #666;
+      outline: none;
+    }
+  </style>
 </head>
 <body>
-	<header>
-	  <div class="logo">🌐 MySite</div>
-	  <div class="dropdown" id="langDropdown">
-	    <button class="dropdown-button" onclick="toggleDropdown()">言語を選択</button>
-	    <div class="dropdown-content">
-	      <a href="?lang=ja">日本語</a>
-	      <a href="?lang=en">English</a>
-	      <a href="?lang=fr">Français</a>
-	      <a href="?lang=zh">中文</a>
-	    </div>
-	  </div>
-	</header>
-	<img id="dummy-picture" src="../img/000.jpg" alt="ダミー動画">
-	<div id="inform">
-		<p id="where"><a href="where.html">ここはどこ？</a></p>
-		<a href="externalSite.html"><button id="share" value="共有">共有</button></a>
-		<img id="favor" src="../img/いいねのアイコン.svg">
-		<p id="favor-count">いいね！<br>0</p>
+  <!-- 左上固定 戻るボタン -->
+  <button class="fixed-back-button" type="button" onclick="history.back()" aria-label="前のページに戻る">
+    ← 戻る
+  </button>
 
-	</div>
-	<p class="descriptions">ダミー詳細。ダミー詳細。
-		ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
-		ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
-		ダミー詳細。</p>
-	<p class="descriptions">ダミーコメント。ダミーコメント。ダミーコメント。
-		ダミーコメント。ダミーコメント。ダミーコメント。
-		ダミーコメント。ダミーコメント。ダミーコメント。
-	</p>
+  <header>
+    <div class="logo">🌐 MySite</div>
+    <div class="dropdown" id="langDropdown">
+      <button class="dropdown-button" onclick="toggleDropdown()" aria-haspopup="true" aria-expanded="false" aria-controls="language-menu">言語を選択</button>
+      <div class="dropdown-content" id="language-menu" role="menu">
+        <a href="?lang=ja" role="menuitem">日本語</a>
+        <a href="?lang=en" role="menuitem">English</a>
+        <a href="?lang=fr" role="menuitem">Français</a>
+        <a href="?lang=zh" role="menuitem">中文</a>
+      </div>
+    </div>
+  </header>
+  <img id="dummy-picture" src="../img/000.jpg" alt="ダミー動画">
+  <div id="inform">
+    <p id="where"><a href="where.html">ここはどこ？</a></p>
+    <a href="post.html"><button id="share" value="共有">共有</button></a>
+    <img id="favor" src="../img/いいねのアイコン.svg" alt="いいねアイコン">
+    <p id="favor-count">いいね！<br>0</p>
+  </div>
+  <p class="descriptions">ダミー詳細。ダミー詳細。
+    ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
+    ダミー詳細。ダミー詳細。ダミー詳細。ダミー詳細。
+    ダミー詳細。
+  </p>
+  <p class="descriptions">ダミーコメント。ダミーコメント。ダミーコメント。
+    ダミーコメント。ダミーコメント。ダミーコメント。
+    ダミーコメント。ダミーコメント。ダミーコメント。
+  </p>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.getElementById('langDropdown');
+      dropdown.classList.toggle('show');
+
+      // アクセシビリティ対応：aria-expanded属性切替
+      const button = dropdown.querySelector('.dropdown-button');
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+    }
+
+    window.onclick = function(event) {
+      const dropdown = document.getElementById('langDropdown');
+      const button = dropdown.querySelector('.dropdown-button');
+      if (!button.contains(event.target) && !dropdown.querySelector('.dropdown-content').contains(event.target)) {
+        dropdown.classList.remove('show');
+        button.setAttribute('aria-expanded', 'false');
+      }
+    }
+  </script>
 </body>
 </html>

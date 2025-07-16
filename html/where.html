@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>観光地情報</title>
   <style>
     body {
@@ -29,26 +29,68 @@
       padding: 16px;
       margin-top: 16px;
       border-radius: 6px;
+      text-align: left;
     }
 
     .info-box p {
       margin: 6px 0;
       font-size: 16px;
     }
+
+    a {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      color: #2a6ebb;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 左上に固定された戻るボタン */
+    .fixed-back-button {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      background-color: #999;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+      user-select: none;
+    }
+    .fixed-back-button:hover,
+    .fixed-back-button:focus {
+      background-color: #666;
+      outline: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 左上固定 戻るボタン -->
+  <button class="fixed-back-button" type="button" onclick="history.back()" aria-label="前のページに戻る">
+    ← 戻る
+  </button>
+
   <div class="container">
     <div class="image-container">
-      <img src="gazou.jpg" alt="観光地の写真">
+      <img src="../img/gazou.jpg" alt="観光地の写真">
     </div>
     <div class="info-box">
       <p><strong>場所：</strong>清津峡</p>
       <p><strong>観光地の情報</strong></p>
       <p>清流清津川をはさんで切り立つ巨大な岸壁がダイナミックなV字形の大峡谷をつくり、国の名勝・天然記念物にも指定されています。平成30年（2018）に大地の芸術祭作品としてリニューアルされた清津峡渓谷トンネルでは、足元一面に張られた水面に峡谷が映り込む不思議な空間を通して絶景を鑑賞することができるパノラマステーションが、映えスポットと話題に。エントランスではカフェや足湯を楽しむこともできます。</p>
     </div>
-        <a href="https://nakasato-kiyotsu.com/">現地情報を確認する🔎</a>  
+    <a href="https://nakasato-kiyotsu.com/">現地情報を確認する🔎</a>  
   </div>
+
 </body>
 </html>
-
